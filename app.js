@@ -1,5 +1,3 @@
-// import _ from 'lodash'
-import bar from './bar';
 import Vue from 'vue';
 
 var app = new Vue({
@@ -7,4 +5,4 @@ var app = new Vue({
   data: {
     message: 'Hello Vue!'
   }
-})  
+})
