@@ -6,8 +6,19 @@
 </head>
 <body>
   <div id="app">
-    {{newTodo}}
-  </div>
+    <div class="newTask">
+        <input type="text" v-model="newTodo" @keypress.enter="addTodo">
+    </div>      
+    <ol class="todos">
+      <li v-for="todo in todoList"> 
+        <input type="checkbox" v-model="todo.done">
+          {{todo.title}}
+          <span v-if='todo.done'> -- done！</span>
+          <span v-else></span>
+          <button @click='remove(todo)'>删除</button>
+      </li>
+    </ol>  
+ </div>
   <!--<script src="dist/bundle.js"></script>-->
   <!--单纯使用webpack-server默认并不会去走output的-->
   <script src="bundle.js"></script>
