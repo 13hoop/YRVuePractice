@@ -8,11 +8,12 @@ module.exports = {
     },
     devtool: 'cheap-eval-source-map',
     devServer: {
-        contentBase: path.join(__dirname),
+        // 单纯使用webpack-server默认并不会去走output的
+        contentBase: __dirname,
         compress: true,
         clientLogLevel: "warning",
+        inline: true,
         port: 9000,
-        hot: true
     },
     module: {
         rules: [
