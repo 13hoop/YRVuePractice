@@ -1,6 +1,5 @@
 .DS_Store
 node_modules/
-dist/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -14,9 +13,7 @@ yarn-error.log*
 .chrome/* 
 .DS_Store
 node_modules
-test/e2e/mock-template-build
 *.log
-dist/
 
 ################# nodejs ignore
 # Logs
