@@ -3,24 +3,67 @@
 <html>
 <head>
   <meta charset=utf-8>
+  <style>
+    #app {
+      background: lightblue;
+      margin: 0 auto;
+      max-width: 800px;
+    }
+
+    #app .newTask {
+      background: #eee;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    #app .newTask input {
+      width: 70%;
+      border-radius: 20px;
+      border-width: 0px;
+      height: 20px;
+    }
+
+    #app .todos {
+      padding: 10px;
+    }
+    #app .todos li {
+      margin: 5px 0px 5px 20px; 
+      display: flex;
+      justify-content: space-between;
+    }
+    #app .todos li input {
+      text-align: left;
+    }
+
+    .todos  li > span {
+      flex-grow: 1;
+      border-bottom: 1px darkcyan solid;
+    }
+
+    .todos li > span.doneStyle {
+      color: red;
+      text-decoration: line-through;
+      border-bottom: 1px transparent solid;
+    }
+
+  </style>
 </head>
 <body>
   <div id="app">
     <div class="newTask">
-        <input type="text" v-model="newTodo" @keypress.enter="addTodo">
+        <input type="text" v-model="newTodo" @keypress.enter="addTodo" placeholder="输入新任务">
     </div>      
     <ol class="todos">
       <li v-for="todo in todoList"> 
         <input type="checkbox" v-model="todo.done">
-          {{todo.title}}
-          <span v-if='todo.done'> -- done！</span>
-          <span v-else></span>
+          <span v-bind:class="{doneStyle: todo.done}">{{todo.title}}</span>
           <button @click='remove(todo)'>删除</button>
       </li>
     </ol>  
  </div>
-  <!--<script src="dist/bundle.js"></script>-->
+  <script src="dist/bundle.js"></script>
   <!--单纯使用webpack-server默认并不会去走output的-->
-  <script src="bundle.js"></script>
+  <!--<script src="bundle.js"></script>-->
 </body>
 </html>

@@ -1,0 +1,79 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+a {
+    text-decoration: none;
+    color: #eee;
+}
+
+body {
+    background: lightblue;
+    font-family: "Heiti SC","Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3",verdana;
+}
+
+header {
+    height: 240px;
+    /*background: #eee;*/
+}
+
+header .j-siteNav {
+    height: 36px;
+    font-size: 12px;
+    background: #333333;    
+}
+
+header .g-row {
+    width: 1090px;
+    margin: 0 auto;
+}
+header .g-row::after{
+    content: '';
+    clear: both;
+    display: block;
+}
+
+header .j-siteNav .declear {
+    color: #ccc;
+    line-height: 36px;
+    display: inline-block;
+}
+
+header .j-siteNav .g-row .right {
+    float: right;
+    height: 36px;
+}
+
+header .j-siteNav .g-row .right a{
+    line-height: 35px;
+    padding:0px 5px;
+    text-align: center;
+    float: left;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+header .j-siteNav .g-row .right a:hover{
+    color: #fff;
+}
+
+header .j-siteNav .g-row .right .split {
+    border-right: 1px #eee;
+    height: 16px;
+    float: left;
+    margin: 10px 10px 10px 0px;
+    line-height: 35px;
+    border-left: 1px solid #5c5c5c;
+}
+
+header .js-funcTab {
+    height: 204px;
+    background: #fff;
+}
+
+header .js-funcTab .g-row .search {
+    float: right;
+    background: lightcoral;
+    height: 100px;
+    width: 100px;
+}

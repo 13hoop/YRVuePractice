@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import LocalStorage from './LocalStorage';
 
 var app = new Vue({
   el: '#app',
@@ -8,26 +9,25 @@ var app = new Vue({
   },
   methods: {
     addTodo: function () {
+      console.log(' - add - :' + this.ne)
       this.todoList.push({
         title: this.newTodo,
         createdAt: new Date(),
         done: false
       })
-      console.log(this.todoList)
       this.newTodo = ''
     },
     remove: function(todo) {
       let index = this.todoList.indexOf(todo)
       this.todoList.splice(index, 1)
+      LocalStorage.save(this.todoList)
     }
   },
   created: function() {
     window.onbeforeunload = () => {
-      let dataStr = JSON.stringify(this.todoList)
-      window.localStorage.setItem('todoList', dataStr)
+      console.log(' window onbeforeunloading ...')
+      LocalStorage.save(this.todoList)
     }
-    let oldDataStr = window.localStorage.getItem('todoList')
-    let oldData = JSON.parse(oldDataStr)
-    this.todoList = oldData || []
+    this.todoList = LocalStorage.fetch()
   }
 })
