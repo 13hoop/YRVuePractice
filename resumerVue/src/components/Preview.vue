@@ -1,6 +1,5 @@
 <template>
-  <div id="preview">
-      preview
+  <div id="Preview">
   </div>
 </template>
 
@@ -11,7 +10,8 @@ export default {
 </script>
 
 <style>
-#preview {
-    color: red;
+#Preview {
+  background: lightgray;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
 }
 </style>

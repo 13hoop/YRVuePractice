@@ -1,35 +1,67 @@
 <template>
-  <div id="app">
-    <h1>{{text}}</h1>
-    <TopBar/>
-    <Editor/>
-    <Preview/>
+  <div class="page">
+    <header>
+      <TopBar/>
+    </header>
+    <main>
+      <Editor/>
+      <Preview/>
+    </main>
   </div>
 </template>
 
 <script>
+import 'normalize.css/normalize.css'
+import './assets/reset.css'
+
 import TopBar from './components/TopBar'
 import Editor from './components/Editor'
 import Preview from './components/Preview'
 
 export default {
   name: 'app',
-  data: function() {
+  data: function () {
     return {
       text: '你好'
     }
   },
-  components: {TopBar, Editor, Preview}
+  components: { TopBar, Editor, Preview }
 }
 </script>
 
 <style>
-#app {
+.page {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #EAEBEC;
+}
+
+.page>main {
+  flex-grow: 1;
+  min-width: 1024px;
+  max-width: 1440px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  width: 100%;
+  /* 试试不加这句会怎样 */
+  align-self: center;
+}
+
+#Editor {
+  width: 35%;
+  background: #444;
+}
+
+#Preview {
+  flex-grow: 1;
+  margin-left: 16px;
+  background: #777;
 }
 </style>
