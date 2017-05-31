@@ -29,7 +29,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang='scss'>
 .page {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -38,10 +38,11 @@ export default {
   display: flex;
   flex-direction: column;
   background: #EAEBEC;
-}
 
-.page>main {
-  flex-grow: 1;
+  >main {
+    flex-grow: 1;
+  }
+  >main {
   min-width: 1024px;
   max-width: 1440px;
   margin-top: 16px;
@@ -50,8 +51,8 @@ export default {
   justify-content: space-between;
   padding: 0 16px;
   width: 100%;
-  /* 试试不加这句会怎样 */
   align-self: center;
+  }
 }
 
 #Editor {
