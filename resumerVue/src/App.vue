@@ -55,13 +55,14 @@ export default {
   }
 }
 
-#Editor {
+#editor {
   width: 35%;
   background: #444;
 }
 
-#Preview {
+#preview {
   flex-grow: 1;
+  width: 61%;
   margin-left: 16px;
   background: #777;
 }
