@@ -25,10 +25,6 @@
           <input type="text" v-model="resume[item.field][key]">
         </div>
       </li>
-      <li>
-        {{count}}
-        <button @click="add"> +1s </button>
-      </li>
     </ol>
   </div>
 </template>
@@ -37,54 +33,19 @@
 export default {
   name: 'Editor',
   computed: {
-    count() {
-      return this.$store.state.count
+    selected: {
+      get() {
+         return this.$store.state.selected
+      },
+      set(value) {
+        return this.$store.commit('switchTab', value)
+      }
+    },
+    resume() {
+      return this.$store.state.resume
     }
   },
   methods: {
-    add() {
-      this.$store.commit('increment')
-    }
-  },
-  data() {
-    return {
-      selected: 'profile',
-      resume: {
-        config: [
-          { field: 'profile', icon: 'id' },
-          { field: 'work history', icon: 'work' },
-          { field: 'education', icon: 'book' },
-          { field: 'projects', icon: 'heart' },
-          { field: 'awards', icon: 'cup' },
-          { field: 'contacts', icon: 'phone' },
-        ],
-        profile: {
-          name: '',
-          city: '',
-          title: ''
-        },
-        'work history': [
-          { company: 'AL', content: '我的第二份工作是' },
-          { company: 'TX', content: '我的第一份工作是' },
-        ],
-        education: [
-          { school: 'AL', content: '文字'},
-          { school: 'TX', content: '文字'},
-        ],
-        projects: [
-          { name: 'project A', content: '文字'},
-          { name: 'project B', content: '文字'},
-        ],
-        awards: [
-          { name: 'award A', content: '文字'},
-          { name: 'award A', content: '文字'}
-        ],
-        contacts: [
-          { contact: 'phone', content: '12345678' },
-          { contact: 'qq', content: '12345678' }
-        ],
-      }
-    }
   }
 }
 </script>
