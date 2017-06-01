@@ -12,8 +12,9 @@
 
 <script>
 import 'normalize.css/normalize.css'
-import icons from './assets/icons'
+import './assets/reset.css'
 
+import icons from './assets/icons'
 import TopBar from './components/TopBar'
 import Editor from './components/Editor'
 import Preview from './components/Preview'
@@ -68,5 +69,13 @@ export default {
   width: 61%;
   margin-left: 16px;
   background: #777;
+}
+
+svg.icon {
+  height: 1em;
+  width: 1em;
+  fill: currentColor;
+  vertical-align: -0.1em;
+  font-size: 16px;
 }
 </style>
