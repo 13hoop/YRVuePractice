@@ -12,7 +12,7 @@
 
 <script>
 import 'normalize.css/normalize.css'
-import './assets/reset.css'
+import icons from './assets/icons'
 
 import TopBar from './components/TopBar'
 import Editor from './components/Editor'
@@ -25,7 +25,10 @@ export default {
       text: '你好'
     }
   },
-  components: { TopBar, Editor, Preview }
+  components: { TopBar, Editor, Preview },
+  created() {
+    document.body.insertAdjacentHTML('afterbegin', icons)
+  }
 }
 </script>
 
