@@ -25,6 +25,10 @@
           <input type="text" v-model="resume[item.field][key]">
         </div>
       </li>
+      <li>
+        {{count}}
+        <button @click="add"> +1s </button>
+      </li>
     </ol>
   </div>
 </template>
@@ -32,6 +36,16 @@
 <script>
 export default {
   name: 'Editor',
+  computed: {
+    count() {
+      return this.$store.state.count
+    }
+  },
+  methods: {
+    add() {
+      this.$store.commit('increment')
+    }
+  },
   data() {
     return {
       selected: 'profile',

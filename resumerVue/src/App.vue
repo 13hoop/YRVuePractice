@@ -13,6 +13,7 @@
 <script>
 import 'normalize.css/normalize.css'
 import './assets/reset.css'
+import store from './store/index'
 
 import icons from './assets/icons'
 import TopBar from './components/TopBar'
@@ -21,11 +22,7 @@ import Preview from './components/Preview'
 
 export default {
   name: 'app',
-  data: function () {
-    return {
-      text: '你好'
-    }
-  },
+  store,
   components: { TopBar, Editor, Preview },
   created() {
     document.body.insertAdjacentHTML('afterbegin', icons)
