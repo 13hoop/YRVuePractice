@@ -1,10 +1,15 @@
 import Vuex from 'vuex'
 import Vue from 'vue' // 思考：在多个文件 import vue ，会怎样
+import objectPath from 'object-path'
 
 Vue.use(Vuex) // 不写这句话浏览器控制台就会报错，于是我就写了
 
 export default new Vuex.Store({
     state: {
+      user: {
+        id: '',
+        username: ''
+      },
       selected: 'profile',
       resume: {
         config: [
@@ -44,8 +49,24 @@ export default new Vuex.Store({
       }
     },
     mutations: {
+        initState(state, payload) {
+          Object.assign(state, payload)
+        },
         switchTab(state, payload) {
           state.selected = payload
+          localStorage.setItem('state', JSON.stringify(state))
+        },
+        updateResume(state, {path, value}) {
+          objectPath.set(state.resume, path, value)
+          localStorage.setItem('state', JSON.stringify(state))
+        },
+        setUser(state, payload) {
+          Object.assign(state.user, payload)
+          console.log(state.user)
+        },
+        removeUser(state) {
+          state.user.id = null
         }
+
     }
 })

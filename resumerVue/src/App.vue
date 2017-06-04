@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="page">
     <header>
       <TopBar/>
@@ -8,6 +9,7 @@
       <Preview/>
     </main>
   </div>
+</div>  
 </template>
 
 <script>
@@ -19,6 +21,7 @@ import icons from './assets/icons'
 import TopBar from './components/TopBar'
 import Editor from './components/Editor'
 import Preview from './components/Preview'
+import AV, {getErrorMsg, getAVUser} from './lib/leancloud'
 
 export default {
   name: 'app',
@@ -26,11 +29,17 @@ export default {
   components: { TopBar, Editor, Preview },
   created() {
     document.body.insertAdjacentHTML('afterbegin', icons)
+    let state = localStorage.getItem('state')
+    if(state) {
+      state = JSON.parse(state)
+    }
+    this.$store.commit('initState', state)
+    this.$store.commit('setUser', getAVUser())
   }
 }
 </script>
 
-<style lang='scss'>
+<style scoped lang='scss'>
 .page {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
